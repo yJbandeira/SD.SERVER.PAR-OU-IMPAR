@@ -3,22 +3,22 @@ package Server;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import Interface.IParOuImparLogic;
-import Logic.ParOuImparLogic;
-import Enum.EParOuImpar;
-
 public class Server {
     public static void main(String[] args) {
 
-        IParOuImparLogic _parOuImparLogic = new ParOuImparLogic(); 
+        final int PORTA = 12345;
+        ServerSocket serverSocket;
 
         try {
-            String retornoJogo = _parOuImparLogic.ExecutaParOuImparComACpu(3, EParOuImpar.PAR);
-
-            System.out.println(retornoJogo);
-
+            serverSocket = new ServerSocket(PORTA);
+            while (true) {
+                System.out.println("Aguardando Cliente....");
+                Socket socketClient = serverSocket.accept();
+                Worker worker = new Worker(socketClient);
+                worker.start();
+            }
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 }
