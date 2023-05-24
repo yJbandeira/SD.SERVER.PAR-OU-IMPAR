@@ -26,18 +26,11 @@ public class Worker extends Thread {
             System.out.println("Aguardando requisição...");
             RequestModel request = (RequestModel) input.readObject();
             double result;
-            ResponseModel retornoJogo = null;
-            if (request.getTipoJogo() == 1) {
-                retornoJogo = _parOuImparLogic.ExecutaParOuImparComACpu(request.getNumero(), request.getParImpar());
-            }
-
-            if (request.getTipoJogo() == 2) {
-                //retornoJogo = _parOuImparLogic.ExecutaParOuImparComACpu(request.getNumero(), request.getParImpar());
-                
-            }
-
-            output.writeObject(retornoJogo);
             
+            ResponseModel retornoJogo = null;
+            retornoJogo = _parOuImparLogic.ExecutaParOuImparComACpu(request.getNumero(), request.getParImpar());
+            
+            output.writeObject(retornoJogo);
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
