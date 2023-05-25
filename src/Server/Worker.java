@@ -5,7 +5,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import Logic.ParOuImparLogic;
-import Util.Enum.EParOuImpar;
 import Util.Model.RequestModel;
 import Util.Model.ResponseModel;
 
@@ -25,7 +24,6 @@ public class Worker extends Thread {
 
             System.out.println("Aguardando requisição...");
             RequestModel request = (RequestModel) input.readObject();
-            double result;
             
             ResponseModel retornoJogo = null;
             retornoJogo = _parOuImparLogic.ExecutaParOuImparComACpu(request.getNumero(), request.getParImpar());
