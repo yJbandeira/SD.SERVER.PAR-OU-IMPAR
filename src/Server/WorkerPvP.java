@@ -15,7 +15,7 @@ public class WorkerPvP extends Thread {
     Socket client1;
     Socket client2;
 
-    public WorkerPvP(Socket client, Socket client2) {
+    public WorkerPvP(Socket client1, Socket client2) {
         this.client1 = client1;
         this.client2 = client2;
     }
@@ -59,10 +59,10 @@ public class WorkerPvP extends Thread {
 
             if (retornoJogo.getVencedor() == 2) {
 
-                response2 = new ResponsePvPModel(request2.getNumero(), retornoJogo.getOpcaoP2().toString(),
+                response2 = new ResponsePvPModel(request.getNumero(), retornoJogo.getOpcaoP1().toString(),
                         new String("Você VENCEU!, " + troca), true);
             } else {
-                response2 = new ResponsePvPModel(request2.getNumero(), retornoJogo.getOpcaoP2().toString(),
+                response2 = new ResponsePvPModel(request.getNumero(), retornoJogo.getOpcaoP1().toString(),
                         new String("Você PERDEU!, " + troca), false);
             }
 
