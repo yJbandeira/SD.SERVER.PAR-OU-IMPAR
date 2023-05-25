@@ -5,9 +5,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import Logic.ParOuImparLogic;
-import Util.Enum.EParOuImpar;
 import Util.Model.RequestModel;
-import Util.Model.ResponseModel;
 import Util.Model.ResponsePvPModel;
 import Util.Model.ResultadoParImparModel;
 
@@ -35,8 +33,6 @@ public class WorkerPvP extends Thread {
 
             System.out.println("Aguardando requisição 2...");
             RequestModel request2 = (RequestModel) input2.readObject();
-
-            double result;
 
             ResultadoParImparModel retornoJogo;
             retornoJogo = _parOuImparLogic.ExecutaParOuImparPvP(request.getNumero(), request.getParImpar(),

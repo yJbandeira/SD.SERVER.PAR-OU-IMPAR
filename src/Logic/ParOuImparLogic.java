@@ -15,7 +15,7 @@ public class ParOuImparLogic {
 
         EParOuImpar resultadoJogo = EPar(soma);
 
-        String escolhaMaquina = opcao.toString(); //== EParOuImpar.IMPAR ? "Par" : "Impar";
+        String escolhaMaquina = opcao == EParOuImpar.IMPAR ? "Par" : "Impar";
 
         if (opcao == resultadoJogo) {
             return new ResponseModel(numeroGerado, escolhaMaquina,

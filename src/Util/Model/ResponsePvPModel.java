@@ -2,8 +2,6 @@ package Util.Model;
 
 import java.io.Serializable;
 
-import Util.Enum.EParOuImpar;
-
 public class ResponsePvPModel implements Serializable {
     private int numeroAdversario;
     private String parImparAdversario, mensagem;
